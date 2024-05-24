@@ -1,0 +1,28 @@
+import random # 隨機生成
+
+def guess_number(target, max_attempts):
+    attempts = 0
+    
+    while attempts < max_attempts:
+        guess = int(input("請猜一個數字："))
+        attempts += 1
+        
+        if guess == target:
+            print("恭喜你，猜對了！")
+            break
+        elif guess < target:
+            print("太低了！")
+        else:
+            print("太高了！")
+    
+    if attempts == max_attempts:
+        print("遊戲結束，你沒有猜對。目標數字是", target)
+
+if __name__ == "__main__":
+    x1 = 1  # 目標數字的下限
+    x2 = 100  # 目標數字的上限
+    max_attempts = 5  # 最大猜測次數
+    
+    target = random.randint(x1, x2)
+    print("遊戲開始！目標數字在", x1, "和", x2, "之間。")
+    guess_number(target, max_attempts)
